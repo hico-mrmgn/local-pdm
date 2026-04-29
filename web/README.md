@@ -1,42 +1,40 @@
 # web/ — メディア構築
 
-Next.js（App Router）+ MDX + Tailwind CSS + shadcn/ui で構築するフロントエンド。
+Next.js 15（App Router）+ MDX + Tailwind CSS で構築するフロントエンド。
 記事ソースは [../content/](../content/) を読み込む。
 
-## ステータス
+## セットアップ
 
-未初期化。Phase 1 で `create-next-app` で初期化する。
+```bash
+pnpm install
+pnpm dev      # 開発サーバー
+pnpm build    # 本番ビルド
+pnpm start    # 本番サーバー
+```
 
-## 想定する構成（初期化時のメモ）
+デフォルトは `http://localhost:3000`。ポートが使用中の場合 Next.js が自動で空きポートに切り替える。
+
+## 構成
 
 ```
 web/
 ├── app/
-│   ├── (site)/
-│   │   ├── page.tsx                 トップ
-│   │   ├── analysis/
-│   │   │   ├── page.tsx             一覧
-│   │   │   └── [slug]/page.tsx      記事
-│   │   ├── prototype/
-│   │   ├── experiments/
-│   │   ├── logs/
-│   │   └── about/
-│   ├── layout.tsx
-│   └── globals.css
-├── components/
-│   ├── ui/                          shadcn/ui
-│   ├── article/                     ArticleCard, MDX renderer など
-│   └── layout/                      Header, Footer
+│   ├── layout.tsx                共通ヘッダー＋Tailwindの読み込み
+│   ├── page.tsx                  トップ（analysis 記事一覧）
+│   ├── globals.css               Tailwind base
+│   └── analysis/[slug]/page.tsx  記事詳細（MDX レンダリング）
 ├── lib/
-│   ├── content.ts                   ../content の MDX を読み込み
-│   ├── mdx.ts                       MDX レンダラ設定
-│   └── sections.ts                  セクション・フィールドの定義
-├── public/
-├── next.config.mjs
-├── tailwind.config.ts
-├── tsconfig.json
+│   └── content.ts                ../content/<section>/*.mdx を読む
+├── next.config.mjs               outputFileTracingRoot を親に設定
+├── tailwind.config.ts            @tailwindcss/typography を有効化
 └── package.json
 ```
+
+## MDX レンダリング
+
+`next-mdx-remote/rsc` で Server Component から直接レンダリング。`gray-matter` で frontmatter をパース。
+
+セクション（prototype/experiments/logs）の追加は `app/<section>/[slug]/page.tsx` を `analysis/[slug]/page.tsx` をコピーして作る。
 
 ## ホスティング
 
