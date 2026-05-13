@@ -67,7 +67,7 @@ export default async function Home() {
 
       <section>
         <div className="flex items-baseline justify-between border-b border-border pb-3">
-          <p className="eyebrow">Index / 4 corners</p>
+          <p className="eyebrow">Index / {SECTIONS.length} sections</p>
           <span className="text-xs tabular-nums text-muted-foreground">
             {latest.length}本
           </span>

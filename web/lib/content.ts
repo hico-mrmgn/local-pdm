@@ -4,15 +4,16 @@ import matter from 'gray-matter';
 
 const CONTENT_ROOT = path.join(process.cwd(), '..', 'content');
 
-export type Section = 'analysis' | 'prototype' | 'experiments' | 'logs';
+export type Section = 'analysis' | 'prototype' | 'experiments' | 'logs' | 'frameworks';
 
-export const SECTIONS: Section[] = ['analysis', 'prototype', 'experiments', 'logs'];
+export const SECTIONS: Section[] = ['analysis', 'prototype', 'experiments', 'logs', 'frameworks'];
 
 export const SECTION_LABEL: Record<Section, string> = {
   analysis: '構造分析',
   prototype: 'プロトタイピング',
   experiments: '検証',
   logs: 'ログ',
+  frameworks: 'フレームワーク',
 };
 
 export const SECTION_TAGLINE: Record<Section, string> = {
@@ -20,6 +21,7 @@ export const SECTION_TAGLINE: Record<Section, string> = {
   prototype: '課題発見→仮説→プロト→学びのサイクルを実名フィールドで',
   experiments: '作ったもの・試したことのレポート',
   logs: '喜茂別での動きなど、等身大の記録',
+  frameworks: '地域でも事業でも、課題を解く前に立ち戻れる考え方',
 };
 
 export interface Frontmatter {
