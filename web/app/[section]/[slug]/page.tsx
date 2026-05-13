@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
+import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -82,7 +83,10 @@ export default async function ArticlePage({
       </div>
 
       <div className="prose prose-slate max-w-none font-sans prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-12 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-lg prose-p:leading-[1.9] prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-foreground prose-blockquote:not-italic prose-blockquote:font-normal prose-code:rounded-none prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-img:my-8">
-        <MDXRemote source={article.content} />
+        <MDXRemote
+          source={article.content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </div>
     </article>
   );
