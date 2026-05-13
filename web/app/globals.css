@@ -60,4 +60,17 @@
   .hairline {
     @apply border-t border-border;
   }
+
+  .prose pre {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
 }
