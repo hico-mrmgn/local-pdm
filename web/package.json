@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "sync-assets": "rm -rf public/assets && cp -R ../content/assets public/assets",
+    "sync-assets": "mkdir -p public && rm -rf public/assets && cp -R ../content/assets public/assets",
     "predev": "pnpm run sync-assets",
     "dev": "next dev",
     "prebuild": "pnpm run sync-assets",
