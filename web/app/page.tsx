@@ -14,6 +14,13 @@ export default async function Home() {
     Promise.all(SECTIONS.map((s) => listArticles(s).then((items) => ({ section: s, items })))),
   ]);
 
+  const issueByKey = new Map<string, number>();
+  [...latest]
+    .sort((a, b) => a.publishedAt.localeCompare(b.publishedAt))
+    .forEach((a, i) => issueByKey.set(`${a.section}/${a.slug}`, i + 1));
+  const issueOf = (a: { section: string; slug: string }) =>
+    issueByKey.get(`${a.section}/${a.slug}`);
+
   return (
     <div className="space-y-20">
       <section>
@@ -26,7 +33,11 @@ export default async function Home() {
         ) : (
           <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
             {latest.slice(0, 6).map((a) => (
-              <ArticleCard key={`${a.section}-${a.slug}`} article={a} />
+              <ArticleCard
+                key={`${a.section}-${a.slug}`}
+                article={a}
+                issueNumber={issueOf(a)}
+              />
             ))}
           </div>
         )}
@@ -65,6 +76,7 @@ export default async function Home() {
                     key={`${a.section}-${a.slug}`}
                     article={a}
                     showSection={false}
+                    issueNumber={issueOf(a)}
                   />
                 ))}
               </div>
