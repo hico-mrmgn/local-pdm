@@ -7,6 +7,9 @@ web/.next/
 web/out/
 web/build/
 
+# build-time copies (sourced from content/assets)
+web/public/assets/
+
 # env
 .env
 .env.local
