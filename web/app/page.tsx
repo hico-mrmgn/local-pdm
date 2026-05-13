@@ -31,7 +31,7 @@ export default async function Home() {
         {latest.length === 0 ? (
           <p className="text-sm text-muted-foreground">記事はまだありません。</p>
         ) : (
-          <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
+          <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
             {latest.slice(0, 6).map((a) => (
               <ArticleCard
                 key={`${a.section}-${a.slug}`}
@@ -70,7 +70,7 @@ export default async function Home() {
             {items.length === 0 ? (
               <p className="text-sm text-muted-foreground">記事はまだありません。</p>
             ) : (
-              <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
+              <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
                 {items.slice(0, 2).map((a) => (
                   <ArticleCard
                     key={`${a.section}-${a.slug}`}
