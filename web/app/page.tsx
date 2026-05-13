@@ -15,32 +15,28 @@ export default async function Home() {
   ]);
 
   return (
-    <div className="space-y-16">
-      <section className="border-b border-border pb-12">
-        <p className="text-sm font-medium uppercase tracking-wider text-accent">
-          Concept
-        </p>
-        <h2 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">
+    <div className="space-y-20">
+      <section className="border-b border-border pb-14">
+        <p className="eyebrow">Concept</p>
+        <h2 className="mt-5 font-serif text-3xl font-bold leading-[1.3] tracking-tight md:text-[2.5rem] md:leading-[1.25]">
           地域課題は、<br className="md:hidden" />
           プロダクト思考で解ける。
         </h2>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-[17px]">
           PdMとしての経験とAI活用を通じて、地域課題の解決アプローチを発信するメディア。
           僕自身の実践を見せることで、読者が「自分でもできる」と思って動き出すきっかけをつくる。
         </p>
       </section>
 
       <section>
-        <div className="mb-6 flex items-baseline justify-between">
-          <h2 className="text-xl font-semibold">最新の記事</h2>
-          <span className="text-xs text-muted-foreground">
-            {latest.length}本
-          </span>
+        <div className="mb-8 flex items-baseline justify-between border-b border-border pb-3">
+          <h2 className="font-serif text-xl font-bold tracking-tight">最新の記事</h2>
+          <span className="text-xs tabular-nums text-muted-foreground">{latest.length}本</span>
         </div>
         {latest.length === 0 ? (
           <p className="text-sm text-muted-foreground">記事はまだありません。</p>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
             {latest.slice(0, 6).map((a) => (
               <ArticleCard key={`${a.section}-${a.slug}`} article={a} />
             ))}
@@ -48,19 +44,20 @@ export default async function Home() {
         )}
       </section>
 
-      <section className="space-y-10">
-        <h2 className="text-xl font-semibold">セクション</h2>
+      <section className="space-y-14">
+        <h2 className="font-serif text-xl font-bold tracking-tight">セクション</h2>
         {perSection.map(({ section, items }) => (
           <div key={section}>
-            <div className="mb-4 flex items-baseline justify-between gap-4">
+            <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-border pb-3">
               <div>
+                <p className="eyebrow">{`0${SECTIONS.indexOf(section) + 1}`}</p>
                 <Link
                   href={`/${section}`}
-                  className="text-lg font-semibold hover:text-accent"
+                  className="mt-1 inline-block font-serif text-lg font-bold tracking-tight hover:text-accent md:text-xl"
                 >
                   {SECTION_LABEL[section]}
                 </Link>
-                <p className="mt-0.5 text-sm text-muted-foreground">
+                <p className="mt-1 text-sm text-muted-foreground">
                   {SECTION_TAGLINE[section]}
                 </p>
               </div>
@@ -68,13 +65,13 @@ export default async function Home() {
                 href={`/${section}`}
                 className="shrink-0 text-xs text-muted-foreground hover:text-foreground"
               >
-                一覧を見る →
+                一覧 →
               </Link>
             </div>
             {items.length === 0 ? (
               <p className="text-sm text-muted-foreground">記事はまだありません。</p>
             ) : (
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
                 {items.slice(0, 2).map((a) => (
                   <ArticleCard
                     key={`${a.section}-${a.slug}`}

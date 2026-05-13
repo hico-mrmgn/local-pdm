@@ -56,38 +56,32 @@ export default async function ArticlePage({
 
   return (
     <article className="mx-auto max-w-3xl">
-      <div className="mb-8 border-b border-border pb-6">
+      <div className="mb-10 border-b border-border pb-8">
         <Link
           href={`/${section}`}
-          className="text-xs font-medium uppercase tracking-wider text-accent hover:underline"
+          className="eyebrow hover:text-foreground"
         >
           {SECTION_LABEL[section]}
         </Link>
-        <h1 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
+        <h1 className="mt-4 font-serif text-3xl font-bold leading-[1.4] tracking-tight md:text-4xl md:leading-[1.35]">
           {frontmatter.title}
         </h1>
-        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-          <time dateTime={frontmatter.publishedAt}>
+        <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+          <time className="tabular-nums" dateTime={frontmatter.publishedAt}>
             {formatDate(frontmatter.publishedAt)}
           </time>
-          {frontmatter.draft && (
-            <Badge variant="accent" className="text-[10px]">
-              DRAFT
-            </Badge>
-          )}
+          {frontmatter.draft && <Badge variant="outline">DRAFT</Badge>}
         </div>
         {frontmatter.tags && frontmatter.tags.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
             {frontmatter.tags.map((t) => (
-              <Badge key={t} variant="outline" className="font-normal">
-                {t}
-              </Badge>
+              <span key={t}>#{t}</span>
             ))}
           </div>
         )}
       </div>
 
-      <div className="prose prose-slate max-w-none prose-headings:font-semibold prose-h2:mt-10 prose-h2:text-xl prose-h3:text-lg prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-accent">
+      <div className="prose prose-slate max-w-none font-sans prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-12 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-lg prose-p:leading-[1.9] prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-foreground prose-blockquote:not-italic prose-blockquote:font-normal prose-code:rounded-none prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-img:my-8">
         <MDXRemote source={article.content} />
       </div>
     </article>

@@ -39,17 +39,16 @@ export default async function SectionIndex({
   if (!isSection(section)) notFound();
 
   const articles = await listArticles(section);
+  const index = SECTIONS.indexOf(section) + 1;
 
   return (
-    <div className="space-y-10">
-      <header className="border-b border-border pb-8">
-        <p className="text-xs font-medium uppercase tracking-wider text-accent">
-          Section
-        </p>
-        <h2 className="mt-2 text-2xl font-bold md:text-3xl">
+    <div className="space-y-12">
+      <header className="border-b border-border pb-10">
+        <p className="eyebrow">{`Section / 0${index}`}</p>
+        <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight md:text-4xl">
           {SECTION_LABEL[section]}
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground md:text-base">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
           {SECTION_TAGLINE[section]}
         </p>
       </header>
@@ -57,7 +56,7 @@ export default async function SectionIndex({
       {articles.length === 0 ? (
         <p className="text-sm text-muted-foreground">記事はまだありません。</p>
       ) : (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-x-10 gap-y-2 md:grid-cols-2">
           {articles.map((a) => (
             <ArticleCard
               key={`${a.section}-${a.slug}`}

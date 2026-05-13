@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import {
   SECTION_LABEL,
   formatDate,
@@ -17,39 +15,33 @@ export function ArticleCard({
   return (
     <Link
       href={`/${article.section}/${article.slug}`}
-      className="block focus-visible:outline-none"
+      className="group block border-t border-border pt-6 transition focus-visible:outline-none"
     >
-      <Card className="h-full transition hover:border-foreground/30 hover:shadow-md">
-        <CardHeader className="space-y-3">
-          <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
-            {showSection ? (
-              <Badge variant="secondary">{SECTION_LABEL[article.section]}</Badge>
-            ) : (
-              <span />
-            )}
-            <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-          </div>
-          <CardTitle className="text-lg leading-snug md:text-xl">
-            {article.title}
-          </CardTitle>
-          {article.description && (
-            <CardDescription className="line-clamp-3">
-              {article.description}
-            </CardDescription>
-          )}
-        </CardHeader>
-        {article.tags && article.tags.length > 0 && (
-          <CardContent>
-            <div className="flex flex-wrap gap-1.5">
-              {article.tags.slice(0, 4).map((t) => (
-                <Badge key={t} variant="outline" className="font-normal">
-                  {t}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
+      <div className="flex items-center justify-between gap-3">
+        {showSection ? (
+          <span className="eyebrow">{SECTION_LABEL[article.section]}</span>
+        ) : (
+          <span />
         )}
-      </Card>
+        <time className="text-xs tabular-nums text-muted-foreground" dateTime={article.publishedAt}>
+          {formatDate(article.publishedAt)}
+        </time>
+      </div>
+      <h3 className="mt-3 font-serif text-lg font-semibold leading-snug tracking-tight transition group-hover:text-accent md:text-xl">
+        {article.title}
+      </h3>
+      {article.description && (
+        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+          {article.description}
+        </p>
+      )}
+      {article.tags && article.tags.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+          {article.tags.slice(0, 4).map((t) => (
+            <span key={t}>#{t}</span>
+          ))}
+        </div>
+      )}
     </Link>
   );
 }

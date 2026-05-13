@@ -1,7 +1,22 @@
 import type { Metadata } from 'next';
+import { Noto_Sans_JP, Noto_Serif_JP } from 'next/font/google';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import './globals.css';
+
+const sans = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const serif = Noto_Serif_JP({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-serif',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -13,10 +28,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
-      <body className="min-h-screen bg-background text-foreground antialiased">
+    <html lang="ja" className={`${sans.variable} ${serif.variable}`}>
+      <body className="min-h-screen bg-background text-foreground">
         <SiteHeader />
-        <main className="mx-auto max-w-5xl px-6 py-10 md:py-14">{children}</main>
+        <main className="mx-auto max-w-5xl px-6 py-12 md:py-16">{children}</main>
         <SiteFooter />
       </body>
     </html>
