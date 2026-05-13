@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 14% 14%;
+
+    --muted: 210 16% 96%;
+    --muted-foreground: 215 12% 42%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 14% 14%;
+
+    --primary: 222 47% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 16% 96%;
+    --secondary-foreground: 222 14% 14%;
+
+    --accent: 25 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 214 15% 91%;
+    --input: 214 15% 91%;
+    --ring: 222 47% 20%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'palt';
+  }
+}
