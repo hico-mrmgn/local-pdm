@@ -3,7 +3,7 @@ import { SECTIONS, SECTION_LABEL } from '@/lib/content';
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-border bg-background">
+    <header className="border-b-2 border-accent bg-background">
       <div className="mx-auto flex max-w-5xl flex-col gap-5 px-6 py-8 md:flex-row md:items-end md:justify-between md:py-10">
         <Link href="/" className="inline-block">
           <span className="eyebrow">Local PdM Journal</span>
@@ -28,7 +28,7 @@ export function SiteHeader() {
             href="/about"
             className="text-muted-foreground transition hover:text-foreground"
           >
-            このメディアについて
+            about
           </Link>
         </nav>
       </div>

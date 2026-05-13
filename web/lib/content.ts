@@ -9,10 +9,10 @@ export type Section = 'analysis' | 'prototype' | 'experiments' | 'logs';
 export const SECTIONS: Section[] = ['analysis', 'prototype', 'experiments', 'logs'];
 
 export const SECTION_LABEL: Record<Section, string> = {
-  analysis: '地域課題の構造と分析',
-  prototype: 'プロトタイプのつくりかた',
-  experiments: '実際にやってみた',
-  logs: '活動ログ',
+  analysis: '構造分析',
+  prototype: 'プロトタイピング',
+  experiments: '検証',
+  logs: 'ログ',
 };
 
 export const SECTION_TAGLINE: Record<Section, string> = {
