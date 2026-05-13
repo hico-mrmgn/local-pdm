@@ -38,4 +38,4 @@ web/
 
 ## ホスティング
 
-AWS Amplify。monorepo の `web/` をビルドルートに指定する。
+Vercel。プロジェクト `local-pdm` の Root Directory を `web/` に設定し、`main` への push で自動デプロイされる。本番 URL: https://local-pdm.vercel.app

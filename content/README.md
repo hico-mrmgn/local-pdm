@@ -41,6 +41,6 @@ tags: ["ゴミ問題", "環境設計"]
 2. [prompts/article-from-source.md](prompts/article-from-source.md) を Claude に渡す
 3. 生成された記事を該当セクションに配置
 4. frontmatter を埋める
-5. push → AWS Amplify が公開
+5. push → Vercel が自動デプロイ
 
 詳細は [../docs/workflow.md](../docs/workflow.md) を参照。

@@ -136,7 +136,7 @@ Next.jsで表示（MDX）
 - **UI:** shadcn/ui + Tailwind CSS
 - **コンテンツ管理:** Markdown + GitHub（MDX）。記事はClaudeが生成、GitHubで管理
 - **ソース（エビデンス）:** Notion議事録・現地メモ・会話・写真など何でも可。特定ツールに依存しない
-- **ホスティング:** AWS Amplify（学習コストと運用コストのバランスが最適）
+- **ホスティング:** Vercel（GitHub 連携で `main` 自動デプロイ。Root Directory は `web/`）
 - **その他:** 必要に応じてCMS検討
 
 ---
