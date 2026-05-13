@@ -44,7 +44,6 @@ export default async function Home() {
       </section>
 
       <section className="space-y-14">
-        <h2 className="font-serif text-xl font-bold tracking-tight">セクション</h2>
         {perSection.map(({ section, items }) => (
           <div key={section}>
             <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-border pb-3">
