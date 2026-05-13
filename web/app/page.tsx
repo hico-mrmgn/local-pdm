@@ -16,18 +16,6 @@ export default async function Home() {
 
   return (
     <div className="space-y-20">
-      <section className="border-b border-border pb-14">
-        <p className="eyebrow">Concept</p>
-        <h2 className="mt-5 font-serif text-3xl font-bold leading-[1.3] tracking-tight md:text-[2.5rem] md:leading-[1.25]">
-          地域課題は、<br className="md:hidden" />
-          プロダクト思考で解ける。
-        </h2>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-[17px]">
-          PdMとしての経験とAI活用を通じて、地域課題の解決アプローチを発信するメディア。
-          僕自身の実践を見せることで、読者が「自分でもできる」と思って動き出すきっかけをつくる。
-        </p>
-      </section>
-
       <section>
         <div className="mb-8 flex items-baseline justify-between border-b border-border pb-3">
           <h2 className="font-serif text-xl font-bold tracking-tight">最新の記事</h2>
